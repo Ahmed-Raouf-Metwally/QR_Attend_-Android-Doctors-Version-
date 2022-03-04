@@ -11,7 +11,7 @@
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/qr"
-            android:title="@string/scan_attend" />
+            android:title="Generate QR" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/message"

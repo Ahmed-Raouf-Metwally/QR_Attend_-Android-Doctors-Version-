@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.myapplication.ui.scan.ScanFragment"
-        android:label="@string/scan_attend"
+        android:label="Generate QR"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment

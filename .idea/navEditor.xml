@@ -37,20 +37,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-223" />
-                            <option name="y" value="163" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="submit2">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-276" />
-                            <option name="y" value="-167" />
+                            <option name="x" value="-198" />
+                            <option name="y" value="6" />
                           </Point>
                         </option>
                       </LayoutPositions>
