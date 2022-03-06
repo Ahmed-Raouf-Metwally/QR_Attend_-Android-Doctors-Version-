@@ -6,6 +6,9 @@
     android:background="@drawable/strocked_box"
     android:padding="6dp"
     app:layout_insetEdge="right"
+    android:paddingRight="3dp"
+    android:paddingLeft="3dp"
+    android:paddingTop="2dp"
     >
     <ImageView
         android:id="@+id/background_views"
@@ -17,6 +20,7 @@
         android:adjustViewBounds="true"
         android:foregroundGravity="bottom"
         android:background="@drawable/strocked_box"
+        android:padding="5dp"
         />
     <TextView
         android:id="@+id/subject_name"
@@ -28,6 +32,7 @@
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:padding="3dp"
         />
 
     <TextView
@@ -39,6 +44,7 @@
         android:text="progress percentage"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:padding="0dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.Lessons">
+    tools:context=".user.Lessons"
+    android:background="@drawable/sign_in_doctor"
+    >
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lessons_rec"
         android:layout_width="match_parent"

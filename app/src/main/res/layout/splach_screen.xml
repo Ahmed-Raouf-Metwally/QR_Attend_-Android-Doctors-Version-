@@ -3,15 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#000">
-    <ImageView
-        android:id="@+id/SplashScreenImage"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:src="@drawable/qr_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="@drawable/background_doctor_version">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

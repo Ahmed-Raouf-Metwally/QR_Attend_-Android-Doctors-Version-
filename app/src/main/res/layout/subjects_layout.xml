@@ -11,6 +11,7 @@
 app:layout_constraintTop_toTopOf="parent"
     android:src="@drawable/background"
     android:adjustViewBounds="true"
+    android:padding="15dp"
     />
     <TextView
         android:id="@+id/subject_name"
@@ -22,6 +23,7 @@ app:layout_constraintTop_toTopOf="parent"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:padding="3dp"
         />
 
     <TextView
@@ -33,6 +35,7 @@ app:layout_constraintTop_toTopOf="parent"
         android:text="progress percentage"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:padding="5dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

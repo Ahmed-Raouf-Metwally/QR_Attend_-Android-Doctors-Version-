@@ -4,7 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QRgenerator">
+    tools:context=".QRgenerator"
+    android:background="@drawable/sign_in_doctor"
+    >
+    <EditText
+        android:id="@+id/session_name_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="please enter session name"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        />
+    <EditText
+        android:id="@+id/description_for_session_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/session_name_view"
+        android:hint="please enter session description"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        />
+    <Button
+        android:id="@+id/create_session_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/description_for_session_view"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Create session"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:background="@drawable/buttons"
+        />
     <ImageView
         android:id="@+id/Qr_Viewer"
         android:layout_width="250dp"
@@ -22,10 +58,11 @@
         android:text="Generate"
         android:gravity="center"
         android:background="@drawable/buttons"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/black"
+        android:textColor="@color/black"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Qr_Viewer"
         android:layout_marginTop="15dp"
+        android:visibility="invisible"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

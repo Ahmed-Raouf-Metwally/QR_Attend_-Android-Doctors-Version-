@@ -88,6 +88,7 @@ lateinit var menuItem: MenuItem
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when(requestCode){
             Camer_Request_Code ->{
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED ){

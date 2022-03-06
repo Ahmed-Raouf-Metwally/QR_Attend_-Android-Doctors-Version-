@@ -61,7 +61,7 @@ subsList= mutableListOf()
             subsList.add(
                 SubjectsData(
                     subjectName = "electronics",
-                    backGroundImageDAsh = R.drawable.background,
+                    backGroundImageDAsh = R.drawable.background4,
                     progress = "60 %"
                 )
             )

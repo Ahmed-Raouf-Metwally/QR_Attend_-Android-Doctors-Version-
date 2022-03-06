@@ -4,19 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/sign_in_doctor"
     tools:context=".user.SignIn">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:src="@drawable/qr_logo"
-        android:adjustViewBounds="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/container"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,9 +24,11 @@
             android:id="@+id/email"
             android:hint="Email"
             android:textColorHint="#000"
-            android:background="#fff"
+            android:background="@drawable/buttons"
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
+            android:padding="10dp"
+            android:gravity="center"
             />
 
         <EditText
@@ -45,10 +37,11 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
-            android:background="#fff"
+            android:background="@drawable/buttons"
             android:hint="Password"
             android:textColorHint="#000"
-
+             android:gravity="center"
+            android:padding="10dp"
             />
 
         <Button
@@ -59,7 +52,9 @@
             android:background="@drawable/buttons"
             android:shadowColor="@color/black"
             android:text="Login"
+            android:textSize="30sp"
             android:layout_gravity="center_horizontal"
+            android:backgroundTint="#7C2196F3"
             />
 
         <TextView

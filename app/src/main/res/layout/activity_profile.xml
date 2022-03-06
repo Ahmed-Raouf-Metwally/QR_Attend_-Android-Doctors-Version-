@@ -5,8 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#17000000"
-    tools:context=".user.ProfileActivity">
+    android:background="@drawable/sign_in_doctor"
+    tools:context=".user.ProfileActivity"
+    >
 <ImageView
     android:layout_width="0dp"
     android:layout_height="155dp"
@@ -15,7 +16,9 @@
      android:adjustViewBounds="true"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="99dp"
+    />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -50,29 +53,19 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email_prof_view"
-        android:weightSum="2"
         android:layout_marginTop="35dp"
         >
         <TextView
             android:id="@+id/level_prof_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="level"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Department"
             android:textSize="25sp"
             android:gravity="center"
             android:background="@drawable/buttons"
+            android:layout_margin="5dp"
             />
-        <TextView
-            android:id="@+id/class_prof_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="class"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:background="@drawable/buttons"
-            />
+
     </LinearLayout>
     <Button
         android:id="@+id/sign_out_button"
@@ -83,21 +76,8 @@
         android:text="Sign Out"
         android:layout_marginTop="35dp"
         android:background="@drawable/buttons"
-        android:backgroundTint="@color/black"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:gravity="center"
-        android:foregroundGravity="center"
         />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_out_button"
-        android:src="@drawable/qr_logo"
-        android:adjustViewBounds="true"
-        android:background="@drawable/buttons"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#C4000000"
-        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
