@@ -10,11 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.QR_Attend_doctors.databinding.FragmentSlideshowBinding
 
 class MessageFragment : Fragment() {
-
     private var _binding: FragmentSlideshowBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -31,10 +27,7 @@ class MessageFragment : Fragment() {
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+
         return root
     }
 

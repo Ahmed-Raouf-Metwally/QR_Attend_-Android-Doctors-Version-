@@ -14,8 +14,8 @@
             android:title="Generate QR" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/message"
-            android:title="@string/messages" />
+            android:icon="@drawable/ic_list"
+            android:title="Attendance list" />
 
     </group>
 </menu>

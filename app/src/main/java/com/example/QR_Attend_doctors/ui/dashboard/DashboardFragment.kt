@@ -57,7 +57,7 @@ lateinit var subsadap : SubjectsAdapter
     lateinit var  subsList : MutableList<SubjectsData>
     fun creat(){
 subsList= mutableListOf()
-        for (i in 1..10) {
+        for (i in 1..2) {
             subsList.add(
                 SubjectsData(
                     subjectName = "electronics",
