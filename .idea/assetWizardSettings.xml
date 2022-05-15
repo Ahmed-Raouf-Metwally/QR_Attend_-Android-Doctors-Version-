@@ -24,8 +24,9 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\عماد\AppData\Local\Temp\baseline_list_alt_24.xml" />
+                                                <entry key="imagePath" value="C:\Users\عماد\AppData\Local\Temp\baseline_delete_24.xml" />
                                                 <entry key="opacityPercent" value="60" />
+                                                <entry key="paddingPercent" value="-5" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -36,7 +37,19 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="file:/$PROJECT_DIR$/../and/icons/material/materialicons/list_alt/baseline_list_alt_24.xml" />
+                                                <entry key="url" value="file:/$PROJECT_DIR$/../and/icons/material/materialicons/delete/baseline_delete_24.xml" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                      <entry key="image">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="color" value="000000" />
+                                                <entry key="opacityPercent" value="60" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -68,7 +81,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_list" />
+                                      <entry key="outputName" value="ic_delet" />
                                     </map>
                                   </option>
                                 </PersistentState>

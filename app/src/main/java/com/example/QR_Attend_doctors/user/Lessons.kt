@@ -5,11 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.QR_Attend_doctors.R
 import com.example.QR_Attend_doctors.ui.Adapters.LessonsAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import org.w3c.dom.Text
+
 
 class Lessons : AppCompatActivity() {
     lateinit var lessrec: RecyclerView
@@ -41,7 +42,7 @@ class Lessons : AppCompatActivity() {
         val title : EditText = view.findViewById(R.id.topic_name)
         confirm.setOnClickListener {
         if (title.text != null){
-            var input : String = title.text.toString()
+            val input : String = title.text.toString()
             topics.add(input)
             dialog.dismiss()
         }
@@ -52,8 +53,28 @@ class Lessons : AppCompatActivity() {
         }
         dialog.setCancelable(false)
     }
+
+        val swipeToDeleteCallback = object : SwipeToDeleteCallback() {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.layoutPosition
+                 topics.removeAt(position)
+                 lessrec.adapter?.notifyItemRemoved(position)
+            }
+
+
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(lessrec)
+    }
     }
 
 
 
-}

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.ItemTouchHelper.*
 import com.example.QR_Attend_doctors.R
 
 class LessonsAdapter(val LessonsNames: MutableList<String>) :
@@ -26,4 +28,5 @@ class LessonsAdapter(val LessonsNames: MutableList<String>) :
     override fun getItemCount(): Int {
         return LessonsNames.size
     }
+
 }
