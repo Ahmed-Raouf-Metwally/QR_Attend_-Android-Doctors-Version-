@@ -2,25 +2,68 @@ package com.example.QR_Attend_doctors.user
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import com.example.QR_Attend_doctors.MainActivity
 import com.example.QR_Attend_doctors.R
 import com.example.QR_Attend_doctors.SignUp
+import com.example.QR_Attend_doctors.api.ApiManager
+import com.example.QR_Attend_doctors.api.doctor
+
+import com.example.QR_Attend_doctors.model.LogInResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignIn : AppCompatActivity() {
     lateinit var log_in: Button
     lateinit var toSignUp: TextView
+    lateinit var Email : EditText
+    lateinit var Password : EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
+        Email = findViewById(R.id.email)
+        Password = findViewById(R.id.password)
         log_in = findViewById(R.id.log_in)
         toSignUp = findViewById(R.id.toSignup)
         log_in.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            val email:String? = Email.text.toString().trim()
+            val password:String? = Password.text.toString().trim()
+
+            if(email!!.isEmpty()){
+                Email.error = "Email required"
+                Email.requestFocus()
+                return@setOnClickListener
+            }
+
+
+            if(password!!.isEmpty()){
+                Password.error = "Password required"
+                Password.requestFocus()
+                return@setOnClickListener
+            }
+            lateinit var doc : doctor
+            doc = doctor(email,password)
+           ApiManager.getApis().LogIn(doc).enqueue(object :Callback<LogInResponse>{
+               override fun onResponse(
+                   call: Call<LogInResponse>,
+                   response: Response<LogInResponse>
+               ) {
+                   Log.e("response",  response.body().toString(), )
+                   Log.e("response",  email, )
+                   Log.e("response",  password, )
+               }
+
+               override fun onFailure(call: Call<LogInResponse>, t: Throwable) {
+                   Log.e("response",  t.message.toString(), )
+               }
+
+           })
         }
         toSignUp.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)

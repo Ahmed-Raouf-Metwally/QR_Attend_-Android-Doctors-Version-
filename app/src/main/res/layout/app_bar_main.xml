@@ -20,6 +20,7 @@
             android:background="@drawable/buttons"
             android:backgroundTint="#DC2C96C6"
             android:padding="4dp"
+            android:layout_margin="6dp"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

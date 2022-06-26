@@ -8,13 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.QR_Attend_doctors.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class StudentsInAttendanceListAdapter(val students : MutableList<StudentData>):RecyclerView.Adapter<StudentsInAttendanceListAdapter.StudentsviewHolder>() {
     class StudentsviewHolder(Itemview : View): RecyclerView.ViewHolder(Itemview){
         val studentImage :ImageView = Itemview.findViewById(R.id.student_image_in_attendance_list)
         val studentName : TextView = Itemview.findViewById(R.id.student_name_in_attendance_list)
         val  studentId : TextView = Itemview.findViewById(R.id.student_id)
-        val firebtn : Button = itemView.findViewById(R.id.fire_student)
+        val firebtn : FloatingActionButton = itemView.findViewById(R.id.fire_student)
 
     }
 
