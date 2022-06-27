@@ -6,6 +6,11 @@ package com.example.QR_Attend_doctors.api
          this.Password = Password
      }
 
+     constructor(ID: Int?) {
+         this.ID = ID
+     }
+
      private var Email : String? = null
 private  var Password:String? = null
+     private  var ID : Int? = null
      }

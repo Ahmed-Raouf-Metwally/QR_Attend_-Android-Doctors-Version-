@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.example.QR_Attend_doctors.MainActivity
 import com.example.QR_Attend_doctors.R
 import com.example.QR_Attend_doctors.SignUp
@@ -17,7 +18,7 @@ import com.example.QR_Attend_doctors.model.LogInResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+lateinit var doc : doctor
 class SignIn : AppCompatActivity() {
     lateinit var log_in: Button
     lateinit var toSignUp: TextView
@@ -47,16 +48,22 @@ class SignIn : AppCompatActivity() {
                 Password.requestFocus()
                 return@setOnClickListener
             }
-            lateinit var doc : doctor
+
             doc = doctor(email,password)
            ApiManager.getApis().LogIn(doc).enqueue(object :Callback<LogInResponse>{
                override fun onResponse(
                    call: Call<LogInResponse>,
                    response: Response<LogInResponse>
                ) {
-                   Log.e("response",  response.body().toString(), )
-                   Log.e("response",  email, )
-                   Log.e("response",  password, )
+                   if(response.body()?.id != null){
+                       doc = doctor(response.body()?.iD)
+                       val intent = Intent(this@SignIn, MainActivity::class.java)
+                       intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                       startActivity(intent)
+                   }
+                   else{
+                       Toast.makeText(applicationContext, "check your email or password", Toast.LENGTH_SHORT).show()
+                   }
                }
 
                override fun onFailure(call: Call<LogInResponse>, t: Throwable) {
