@@ -15,13 +15,16 @@ import com.example.QR_Attend_doctors.api.ApiManager
 import com.example.QR_Attend_doctors.api.doctor
 
 import com.example.QR_Attend_doctors.model.LogInResponse
+import com.example.QR_Attend_doctors.model.SubjectsResponse
+import com.example.QR_Attend_doctors.ui.dashboard.DashboardFragment
+import com.example.QR_Attend_doctors.ui.dashboard.SubjectsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 lateinit var doc : doctor
+var responseLogInResponse:LogInResponse?=null
 class SignIn : AppCompatActivity() {
     lateinit var log_in: Button
-    lateinit var toSignUp: TextView
     lateinit var Email : EditText
     lateinit var Password : EditText
 
@@ -31,7 +34,8 @@ class SignIn : AppCompatActivity() {
         Email = findViewById(R.id.email)
         Password = findViewById(R.id.password)
         log_in = findViewById(R.id.log_in)
-        toSignUp = findViewById(R.id.toSignup)
+
+
         log_in.setOnClickListener {
             val email:String? = Email.text.toString().trim()
             val password:String? = Password.text.toString().trim()
@@ -57,7 +61,8 @@ class SignIn : AppCompatActivity() {
                ) {
                    if(response.body()?.id != null){
                        doc = doctor(response.body()?.iD)
-                       val intent = Intent(this@SignIn, MainActivity::class.java)
+                       responseLogInResponse = response.body()
+                       val intent = Intent(this@SignIn, ProfileActivity::class.java)
                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                        startActivity(intent)
                    }
@@ -72,11 +77,7 @@ class SignIn : AppCompatActivity() {
 
            })
         }
-        toSignUp.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
-            startActivity(intent)
-            finish()
-        }
+
     }
 
 }

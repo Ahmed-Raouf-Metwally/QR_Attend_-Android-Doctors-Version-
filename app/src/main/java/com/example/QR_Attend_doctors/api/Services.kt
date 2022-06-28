@@ -1,6 +1,7 @@
 package com.example.QR_Attend_doctors.api
 
 import com.example.QR_Attend_doctors.model.LogInResponse
+import com.example.QR_Attend_doctors.model.SubjectsResponse
 import retrofit2.Call
 import retrofit2.http.*
 import retrofit2.http.FormUrlEncoded
@@ -16,4 +17,8 @@ interface Services {
     fun Logout(
         @Body doc: doctor
     ):Call<LogInResponse>
+    @GET("getDrAlltopic")
+    fun GetAllTopics()
+    @POST("getDrmat")
+    fun GetSubjects(@Body doc: doctor):Call<SubjectsResponse>
 }

@@ -7,10 +7,13 @@ package com.example.QR_Attend_doctors.api
      }
 
      constructor(ID: Int?) {
+         this.dID = ID
          this.ID = ID
      }
 
      private var Email : String? = null
 private  var Password:String? = null
      private  var ID : Int? = null
+     private var dID : Int? = null
+     private var Name:String?=null
      }

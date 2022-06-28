@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.QR_Attend_doctors.R
+import com.example.QR_Attend_doctors.model.SubjectsItem
 
-class SubjectsAdapter(val subjects: MutableList<SubjectsData>):
+class SubjectsAdapter(val subjects: MutableList<SubjectsItem?>?):
     RecyclerView.Adapter<SubjectsAdapter.SubjectViewHolder>() {
     class SubjectViewHolder(ItemView: View, subLitener: OnSubjectClickListener) :
         RecyclerView.ViewHolder(ItemView) {
@@ -28,6 +29,7 @@ class SubjectsAdapter(val subjects: MutableList<SubjectsData>):
     private lateinit var subjcetListener: OnSubjectClickListener
     public fun setSubjectClickListener(subLitener: OnSubjectClickListener) {
         subjcetListener = subLitener
+
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): SubjectViewHolder {
@@ -36,14 +38,15 @@ class SubjectsAdapter(val subjects: MutableList<SubjectsData>):
     }
 
     override fun onBindViewHolder(p0: SubjectViewHolder, p1: Int) {
-        val subs = subjects[p1]
-        p0.subjectName.setText(subs.subjectName)
-        p0.backgroundImage.setImageResource(subs.backGroundImageDAsh)
-        p0.progressInSub.setText(subs.progress)
+        val subs = subjects?.get(p1)
+        p0.subjectName.setText(subs?.name)
+        p0.backgroundImage.setImageResource(R.drawable.cs_logo)
+        p0.progressInSub.setText(subs?.code)
+
     }
 
     override fun getItemCount(): Int {
-        return subjects.size
+        return subjects?.size?:0
     }
 
     interface OnSubjectClickListener {
