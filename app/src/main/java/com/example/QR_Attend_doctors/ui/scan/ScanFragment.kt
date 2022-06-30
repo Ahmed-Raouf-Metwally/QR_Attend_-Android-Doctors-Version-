@@ -23,7 +23,7 @@ import com.example.QR_Attend_doctors.user.doc
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+var mat_Id : Int? = null
 class ScanFragment : Fragment() {
 
     private var _binding: FragmentGalleryBinding? = null
@@ -60,8 +60,10 @@ class ScanFragment : Fragment() {
         val gridLayout:GridLayoutManager = GridLayoutManager(this.context,2)
         subsadap.setSubjectClickListener(object : SubjectsAdapter.OnSubjectClickListener {
             override fun onSubjectClick(position: Int) {
+
                 var intent = Intent(context, QRgenerator::class.java)
                 startActivity(intent)
+                mat_Id = SubjectsResponse?.subjects?.get(position)?.iD
             }
 
         })
@@ -78,6 +80,7 @@ class ScanFragment : Fragment() {
             ) {
                 Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
                 SubjectsResponse = response.body()
+
             }
 
             override fun onFailure(call: Call<SubjectsResponse>, t: Throwable) {

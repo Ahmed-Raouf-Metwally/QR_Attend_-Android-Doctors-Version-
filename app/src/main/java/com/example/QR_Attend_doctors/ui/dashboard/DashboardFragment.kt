@@ -65,7 +65,7 @@ lateinit var subsadap : SubjectsAdapter
         subsadap.setSubjectClickListener(object : SubjectsAdapter.OnSubjectClickListener {
             override fun onSubjectClick(position: Int) {
 
-                matID = subNameList?.get(position)?.iD?:0
+                matID = SubjectsResponse?.subjects?.get(position)?.iD?:0
                 var intent = Intent( requireContext(), Lessons::class.java)
                 startActivity(intent)
             }

@@ -1,5 +1,6 @@
 package com.example.QR_Attend_doctors.api
 
+import com.example.QR_Attend_doctors.model.AddTopicResponse
 import com.example.QR_Attend_doctors.model.LogInResponse
 import com.example.QR_Attend_doctors.model.SubjectsResponse
 import com.example.QR_Attend_doctors.model.TopicsResponse
@@ -11,19 +12,14 @@ interface Services {
 
 
     @POST("logIn")
-    fun LogIn(
-        @Body doc : doctor
-    ):Call<LogInResponse> ;
+    fun LogIn( @Body doc : doctor):Call<LogInResponse> ;
     @POST("logout")
-    fun Logout(
-        @Body doc: doctor
-    ):Call<LogInResponse>
+    fun Logout(@Body doc: doctor):Call<LogInResponse>;
     @POST("getDrAlltopic")
-    fun GetAllTopics(
-        @Body subjects: Subjects
-    ):Call<TopicsResponse>
-
+    fun GetAllTopics(@Body subjects: Subjects):Call<TopicsResponse>;
     @POST("getDrmat")
-    fun GetSubjects(@Body doc: doctor):Call<SubjectsResponse>
+    fun GetSubjects(@Body doc: doctor):Call<SubjectsResponse>;
+    @POST ("addtopic")
+    fun AddTopic( @Body AddTopicData:AddTopicData ): Call<AddTopicResponse>
 
 }
