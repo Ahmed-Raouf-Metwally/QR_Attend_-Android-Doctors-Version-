@@ -81,7 +81,6 @@ class ScanFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<SubjectsResponse>, t: Throwable) {
-                TODO("Not yet implemented")
             }
 
         })

@@ -24,7 +24,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\عماد\AppData\Local\Temp\baseline_delete_24.xml" />
+                                                <entry key="imagePath" value="C:\Users\عماد\AppData\Local\Temp\baseline_refresh_24.xml" />
                                                 <entry key="opacityPercent" value="60" />
                                                 <entry key="paddingPercent" value="-5" />
                                               </map>
@@ -37,7 +37,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="file:/$PROJECT_DIR$/../and/icons/material/materialicons/delete/baseline_delete_24.xml" />
+                                                <entry key="url" value="file:/$PROJECT_DIR$/../and/icons/material/materialicons/refresh/baseline_refresh_24.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -81,7 +81,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_delet" />
+                                      <entry key="outputName" value="ic_refresh" />
                                     </map>
                                   </option>
                                 </PersistentState>

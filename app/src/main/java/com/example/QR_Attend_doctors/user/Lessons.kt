@@ -4,23 +4,43 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.QR_Attend_doctors.R
+import com.example.QR_Attend_doctors.api.ApiManager
+import com.example.QR_Attend_doctors.api.Subjects
+import com.example.QR_Attend_doctors.model.TopicsItem
+import com.example.QR_Attend_doctors.model.TopicsResponse
 import com.example.QR_Attend_doctors.ui.Adapters.LessonsAdapter
+import com.example.QR_Attend_doctors.ui.dashboard.matID
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class Lessons : AppCompatActivity() {
     lateinit var lessrec: RecyclerView
     lateinit var lessAdap: LessonsAdapter
     lateinit var addbtn : FloatingActionButton
-    val topics: MutableList<String> = mutableListOf()
+    val topics: MutableList<TopicsItem?>? = mutableListOf()
     private fun creat() {
-        for (i in 0..5){
-            topics.add(i,"topic $i")
-        }
+        ApiManager.getApis().GetAllTopics(Subjects(matID)).enqueue(object : Callback<TopicsResponse> {
+            override fun onResponse(
+                call: Call<TopicsResponse>,
+                response: Response<TopicsResponse>
+            ) {
+                lessAdap.setData(response.body()?.topics)
+
+            }
+
+            override fun onFailure(call: Call<TopicsResponse>, t: Throwable) {
+                Toast.makeText(applicationContext, "network issue", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +63,7 @@ class Lessons : AppCompatActivity() {
         confirm.setOnClickListener {
         if (title.text != null){
             val input : String = title.text.toString()
-            topics.add(input)
+
             dialog.dismiss()
         }
 
@@ -65,7 +85,7 @@ class Lessons : AppCompatActivity() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.layoutPosition
-                 topics.removeAt(position)
+                 topics?.removeAt(position)
                  lessrec.adapter?.notifyItemRemoved(position)
             }
 

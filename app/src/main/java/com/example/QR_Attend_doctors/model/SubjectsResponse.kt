@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class SubjectsResponse(
 
-	@field:SerializedName("subjects")
+	@field:SerializedName("Supjects")
 	val subjects: MutableList<SubjectsItem?>? = null
 )
 

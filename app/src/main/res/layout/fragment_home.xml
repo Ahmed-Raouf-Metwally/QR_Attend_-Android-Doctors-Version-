@@ -18,4 +18,5 @@
         android:orientation="vertical"
         tools:listitem="@layout/subjects_layout"
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

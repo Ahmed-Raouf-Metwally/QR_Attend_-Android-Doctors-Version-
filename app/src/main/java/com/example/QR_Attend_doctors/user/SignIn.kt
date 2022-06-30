@@ -62,7 +62,7 @@ class SignIn : AppCompatActivity() {
                    if(response.body()?.id != null){
                        doc = doctor(response.body()?.iD)
                        responseLogInResponse = response.body()
-                       val intent = Intent(this@SignIn, ProfileActivity::class.java)
+                       val intent = Intent(this@SignIn, MainActivity::class.java)
                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                        startActivity(intent)
                    }

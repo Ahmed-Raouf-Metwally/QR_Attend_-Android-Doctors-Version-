@@ -21,10 +21,14 @@ import com.example.QR_Attend_doctors.ui.Adapters.SubjectsAdapter
 import com.example.QR_Attend_doctors.ui.Adapters.SubjectsData
 import com.example.QR_Attend_doctors.user.Lessons
 import com.example.QR_Attend_doctors.user.doc
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import okhttp3.internal.notify
+import okhttp3.internal.notifyAll
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 var SubjectsResponse: SubjectsResponse? = null
+var matID : Int? = null
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -51,6 +55,7 @@ class DashboardFragment : Fragment() {
 lateinit var subsrecy : RecyclerView
 lateinit var subsadap : SubjectsAdapter
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         subsrecy = view.findViewById(R.id.subjects_recycler)
@@ -59,22 +64,27 @@ lateinit var subsadap : SubjectsAdapter
         subsrecy.adapter = subsadap
         subsadap.setSubjectClickListener(object : SubjectsAdapter.OnSubjectClickListener {
             override fun onSubjectClick(position: Int) {
-                var intent = Intent(context, Lessons::class.java)
+
+                matID = subNameList?.get(position)?.iD?:0
+                var intent = Intent( requireContext(), Lessons::class.java)
                 startActivity(intent)
             }
 
         })
 
+
+
     }
 var subNameList : MutableList<SubjectsItem?>? = SubjectsResponse?.subjects ?: mutableListOf()
 
-    lateinit var  subsList : MutableList<SubjectsData>
+
     fun creat(){
         ApiManager.getApis().GetSubjects(doc).enqueue(object : Callback<SubjectsResponse> {
             override fun onResponse(
                 call: Call<SubjectsResponse>,
                 response: Response<SubjectsResponse>
             ) {
+
                 Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
                 SubjectsResponse = response.body()
             }
@@ -83,6 +93,7 @@ var subNameList : MutableList<SubjectsItem?>? = SubjectsResponse?.subjects ?: mu
                 Toast.makeText(requireContext(), "network issue", Toast.LENGTH_SHORT).show()            }
 
         })
+
         }
     override fun onDestroyView() {
         super.onDestroyView()

@@ -9,7 +9,7 @@ import android.widget.TextView
 import com.example.QR_Attend_doctors.R
 import com.example.QR_Attend_doctors.model.SubjectsItem
 
-class SubjectsAdapter(val subjects: MutableList<SubjectsItem?>?):
+class SubjectsAdapter(var subjects: MutableList<SubjectsItem?>?):
     RecyclerView.Adapter<SubjectsAdapter.SubjectViewHolder>() {
     class SubjectViewHolder(ItemView: View, subLitener: OnSubjectClickListener) :
         RecyclerView.ViewHolder(ItemView) {
@@ -49,7 +49,10 @@ class SubjectsAdapter(val subjects: MutableList<SubjectsItem?>?):
         return subjects?.size?:0
     }
 
+
+
     interface OnSubjectClickListener {
         fun onSubjectClick(position: Int)
     }
+
 }
