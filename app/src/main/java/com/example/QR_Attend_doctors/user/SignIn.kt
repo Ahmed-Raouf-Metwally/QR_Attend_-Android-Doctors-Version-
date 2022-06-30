@@ -6,18 +6,13 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.example.QR_Attend_doctors.MainActivity
 import com.example.QR_Attend_doctors.R
-import com.example.QR_Attend_doctors.SignUp
 import com.example.QR_Attend_doctors.api.ApiManager
 import com.example.QR_Attend_doctors.api.doctor
 
 import com.example.QR_Attend_doctors.model.LogInResponse
-import com.example.QR_Attend_doctors.model.SubjectsResponse
-import com.example.QR_Attend_doctors.ui.dashboard.DashboardFragment
-import com.example.QR_Attend_doctors.ui.dashboard.SubjectsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

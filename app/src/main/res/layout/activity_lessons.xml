@@ -18,16 +18,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_new_lesson_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/add_new_logo"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        android:layout_gravity="bottom|end"
-        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

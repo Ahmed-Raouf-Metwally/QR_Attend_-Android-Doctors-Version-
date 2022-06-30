@@ -24,7 +24,7 @@ import retrofit2.Response
 class Lessons : AppCompatActivity() {
     lateinit var lessrec: RecyclerView
     lateinit var lessAdap: LessonsAdapter
-    lateinit var addbtn : FloatingActionButton
+
     val topics: MutableList<TopicsItem?>? = mutableListOf()
     private fun creat() {
         ApiManager.getApis().GetAllTopics(Subjects(matID)).enqueue(object : Callback<TopicsResponse> {
@@ -49,30 +49,7 @@ class Lessons : AppCompatActivity() {
         creat()
         lessAdap = LessonsAdapter(topics)
         lessrec.adapter = lessAdap
-        addbtn = findViewById(R.id.add_new_lesson_button)
-    addbtn.setOnClickListener {
-        val view =View.inflate(this,R.layout.add_new_lesson,null)
-        val builder = AlertDialog.Builder(this)
-        builder.setView(view)
-        val dialog = builder.create()
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(com.google.android.material.R.color.mtrl_btn_transparent_bg_color)
-        val confirm:FloatingActionButton = view.findViewById(R.id.confirm)
-        val cancel:FloatingActionButton = view.findViewById(R.id.cancel_add_lesson_button)
-        val title : EditText = view.findViewById(R.id.topic_name)
-        confirm.setOnClickListener {
-        if (title.text != null){
-            val input : String = title.text.toString()
 
-            dialog.dismiss()
-        }
-
-        }
-        cancel.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialog.setCancelable(false)
-    }
 
         val swipeToDeleteCallback = object : SwipeToDeleteCallback() {
             override fun onMove(
