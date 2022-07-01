@@ -1,5 +1,6 @@
 package com.example.QR_Attend_doctors.user
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,9 +9,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.example.QR_Attend_doctors.MainActivity
 import com.example.QR_Attend_doctors.R
 import com.example.QR_Attend_doctors.api.ApiManager
+import com.example.QR_Attend_doctors.api.AttendanceListRequest
 import com.example.QR_Attend_doctors.api.Subjects
+import com.example.QR_Attend_doctors.model.AttendanceListResponse
 import com.example.QR_Attend_doctors.model.TopicsItem
 import com.example.QR_Attend_doctors.model.TopicsResponse
 import com.example.QR_Attend_doctors.ui.Adapters.LessonsAdapter
@@ -20,7 +24,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
+var topID : String? = null
+var topresponse:TopicsResponse?= null
 class Lessons : AppCompatActivity() {
     lateinit var lessrec: RecyclerView
     lateinit var lessAdap: LessonsAdapter
@@ -33,7 +38,7 @@ class Lessons : AppCompatActivity() {
                 response: Response<TopicsResponse>
             ) {
                 lessAdap.setData(response.body()?.topics)
-
+                 topresponse= response.body()
             }
 
             override fun onFailure(call: Call<TopicsResponse>, t: Throwable) {
@@ -49,27 +54,16 @@ class Lessons : AppCompatActivity() {
         creat()
         lessAdap = LessonsAdapter(topics)
         lessrec.adapter = lessAdap
-
-
-        val swipeToDeleteCallback = object : SwipeToDeleteCallback() {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
+        lessAdap.setTopicClickListener(object :LessonsAdapter.OnTopicClickListener{
+            override fun onTopicClick(position: Int) {
+                topID = topresponse?.topics?.get(position)?.iD
+                val intent = Intent(applicationContext, AttendanceList::class.java)
+                startActivity(intent)
             }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position = viewHolder.layoutPosition
-                 topics?.removeAt(position)
-                 lessrec.adapter?.notifyItemRemoved(position)
-            }
+        })
 
 
-        }
-        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
-        itemTouchHelper.attachToRecyclerView(lessrec)
+
     }
     }
 

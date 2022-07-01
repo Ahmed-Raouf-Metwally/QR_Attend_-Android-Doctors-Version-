@@ -13,15 +13,24 @@ import okhttp3.internal.notifyAll
 
 class LessonsAdapter(var LessonsNames: MutableList<TopicsItem?>?) :
     RecyclerView.Adapter<LessonsAdapter.lessonViewHolder>() {
-    class lessonViewHolder(item: View) : RecyclerView.ViewHolder(item) {
+    class lessonViewHolder(item: View , topicListener:OnTopicClickListener ) : RecyclerView.ViewHolder(item) {
         val lessonName: TextView = item.findViewById(R.id.lesson_assignment_name)
         val lessonDesc : TextView = item.findViewById(R.id.descriptio_lesson)
+        init {
+            item.setOnClickListener {
+                topicListener.onTopicClick(adapterPosition)
+            }
+        }
 
     }
+    private lateinit var topictListener: LessonsAdapter.OnTopicClickListener
+    public fun setTopicClickListener(topLitener: LessonsAdapter.OnTopicClickListener) {
+        topictListener = topLitener
 
+    }
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): lessonViewHolder {
         val view = LayoutInflater.from(p0.context).inflate(R.layout.lesson_item, p0, false)
-        return lessonViewHolder(view)
+        return lessonViewHolder(view,topictListener)
     }
 
     override fun onBindViewHolder(p0: lessonViewHolder, p1: Int) {
@@ -40,4 +49,7 @@ fun setData(data: MutableList<TopicsItem?>?){
     LessonsNames = data
     notifyDataSetChanged()
 }
+    interface OnTopicClickListener {
+        fun onTopicClick(position: Int)
+    }
 }

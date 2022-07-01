@@ -8,9 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.QR_Attend_doctors.R
+import com.example.QR_Attend_doctors.model.AttendansItem
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import okhttp3.internal.notifyAll
 
-class StudentsInAttendanceListAdapter(val students : MutableList<StudentData>):RecyclerView.Adapter<StudentsInAttendanceListAdapter.StudentsviewHolder>() {
+class StudentsInAttendanceListAdapter(var students : MutableList<AttendansItem?>?):RecyclerView.Adapter<StudentsInAttendanceListAdapter.StudentsviewHolder>() {
     class StudentsviewHolder(Itemview : View): RecyclerView.ViewHolder(Itemview){
         val studentImage :ImageView = Itemview.findViewById(R.id.student_image_in_attendance_list)
         val studentName : TextView = Itemview.findViewById(R.id.student_name_in_attendance_list)
@@ -25,13 +27,19 @@ class StudentsInAttendanceListAdapter(val students : MutableList<StudentData>):R
     }
 
     override fun onBindViewHolder(holder: StudentsviewHolder, position: Int) {
-        val stu = students[position]
-        holder.studentName.setText(stu.studentName)
-        holder.studentId.setText(stu.studentId)
-        holder.studentImage.setImageResource(stu.studentImage)
+        val stu = students?.get(position)
+        holder.studentName.setText(stu?.name)
+        holder.studentId.setText(stu?.iD.toString())
+        holder.studentImage.setImageResource(R.drawable.profile_logo)
     }
 
     override fun getItemCount(): Int {
-        return students.size
+        return students?.size?:0
     }
+    fun setData( students : MutableList<AttendansItem?>?){
+        this.students = students
+        notifyDataSetChanged()
+
+    }
+
 }

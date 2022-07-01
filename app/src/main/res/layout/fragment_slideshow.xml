@@ -5,14 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.message.MessageFragment">
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/students_attendance_rec"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:listitem="@layout/attende_view_card"
-    android:layout_margin="5dp"
-    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
