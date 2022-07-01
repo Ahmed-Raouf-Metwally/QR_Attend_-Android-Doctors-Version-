@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/qr_image_card_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="550dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,5 +20,6 @@
         android:backgroundTint="#00CC0707"
         
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

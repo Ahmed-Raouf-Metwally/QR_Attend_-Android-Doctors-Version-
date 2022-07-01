@@ -52,7 +52,7 @@ class QRgenerator : AppCompatActivity() {
                  }
 
                  override fun onFailure(call: Call<AddTopicResponse>, t: Throwable) {
-                     TODO("Not yet implemented")
+                     Toast.makeText(applicationContext, "network issue", Toast.LENGTH_SHORT).show()
                  }
 
 
