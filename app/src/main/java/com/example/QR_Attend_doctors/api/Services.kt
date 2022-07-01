@@ -20,5 +20,7 @@ interface Services {
     fun AddTopic( @Body AddTopicData:AddTopicData ): Call<AddTopicResponse>
     @POST("attendansList")
     fun getAttendanceList(@Body AttendaceReq:AttendanceListRequest  ): Call<AttendanceListResponse>
+    @POST("GeneratQR")
+    fun generateQr(@Body AttendaceReq:AttendanceListRequest):Call<GenerateQRResponse>
 
 }

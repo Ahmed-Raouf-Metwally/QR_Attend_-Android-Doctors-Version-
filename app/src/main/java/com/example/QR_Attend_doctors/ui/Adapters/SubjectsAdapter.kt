@@ -49,7 +49,10 @@ class SubjectsAdapter(var subjects: MutableList<SubjectsItem?>?):
         return subjects?.size?:0
     }
 
-
+fun setData(subjects: MutableList<SubjectsItem?>?){
+    this.subjects = subjects
+    notifyDataSetChanged()
+}
 
     interface OnSubjectClickListener {
         fun onSubjectClick(position: Int)

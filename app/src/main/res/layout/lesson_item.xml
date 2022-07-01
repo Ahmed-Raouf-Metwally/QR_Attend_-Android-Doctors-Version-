@@ -61,4 +61,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo" />
+    <Button
+        android:id="@+id/show_qr_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        android:text="Show qr"
+        android:backgroundTint="#9A009688"
+        android:textSize="20sp"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

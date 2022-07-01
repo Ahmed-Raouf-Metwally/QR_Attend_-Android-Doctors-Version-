@@ -17,22 +17,15 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class QRgenerator : AppCompatActivity() {
-   lateinit var qrImage : ImageView
-   lateinit var generateButton: Button
    lateinit var creatSessionButton: Button
    lateinit var SessionName: EditText
    lateinit var SessionDesc: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qrgenerator)
-        qrImage = findViewById(R.id.Qr_Viewer)
         creatSessionButton = findViewById(R.id.create_session_button)
-        generateButton = findViewById(R.id.Generate_QR_Button)
         SessionName = findViewById(R.id.session_name_view)
         SessionDesc = findViewById(R.id.description_for_session_view)
-        generateButton.setOnClickListener {
-          qrImage.setImageResource(R.drawable.qr_test)
-        }
 
         creatSessionButton.setOnClickListener {
             var Name: String? = SessionName.text.toString().trim()
@@ -64,7 +57,7 @@ class QRgenerator : AppCompatActivity() {
 
 
              })
-            generateButton.setVisibility(View.VISIBLE)
+
     }
 }
 }

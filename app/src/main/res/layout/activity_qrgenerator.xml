@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:hint="please enter session name"
         android:textColorHint="@color/black"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="200dp"
         android:gravity="center"
         />
     <EditText
@@ -41,28 +41,6 @@
         android:textColor="@color/black"
         android:background="@drawable/buttons"
         />
-    <ImageView
-        android:id="@+id/Qr_Viewer"
-        android:layout_width="250dp"
-        android:layout_height="200dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:adjustViewBounds="true"
-   />
-    <Button
-        android:id="@+id/Generate_QR_Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Generate"
-        android:gravity="center"
-        android:background="@drawable/buttons"
-        android:textColor="@color/black"
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Qr_Viewer"
-        android:layout_marginTop="15dp"
-        android:visibility="invisible"
-        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

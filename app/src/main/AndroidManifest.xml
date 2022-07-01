@@ -19,6 +19,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".QrScreen"
+            android:exported="false" />
+        <activity
             android:name=".user.AttendanceList"
             android:exported="false" />
         <activity
