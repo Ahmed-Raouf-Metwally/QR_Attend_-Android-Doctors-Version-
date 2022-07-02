@@ -17,7 +17,7 @@ class StudentsInAttendanceListAdapter(var students : MutableList<AttendansItem?>
         val studentImage :ImageView = Itemview.findViewById(R.id.student_image_in_attendance_list)
         val studentName : TextView = Itemview.findViewById(R.id.student_name_in_attendance_list)
         val  studentId : TextView = Itemview.findViewById(R.id.student_id)
-        val firebtn : FloatingActionButton = itemView.findViewById(R.id.fire_student)
+
 
     }
 
